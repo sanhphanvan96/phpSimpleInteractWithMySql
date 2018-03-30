@@ -2,17 +2,18 @@
 	require_once "session.php";
 	require_once "connect_db.php";
 
-
-	// Tạo flash message nếu vừa đăng nhập thành công
-	if($_SESSION["flash"] !== "") {
-		echo "<p>".$_SESSION["flash"]."</p>";
-		$_SESSION["flash"] = "";
+	// Kiểm tra user đã login chưa, nếu chưa: chuyển hướng về trang login
+	if(islogin() == false) {
+		header("Location: login.php");
 	}
-	// Tạo câu truy vấn tất cả
-    $statement = "SELECT * FROM table1";
-	$res = $connect->query($statement);
 
 	require_once "layout/header.php";
+
+	// Tạo flash message nếu vừa đăng nhập thành công
+	$flash = getLoginFlash();
+	if($flash !== null) {
+		echo "<p>".$flash."</p>";
+	}
 ?>
 
 	<table border="1">
@@ -29,7 +30,11 @@
 			</tr>
 		</thead>
 		<tbody>
-		<?php 
+		<?php
+			// Truy vấn tất cả Nhân viên
+			$statement = "SELECT * FROM table1";
+			$res = $connect->query($statement);
+
 			if($res) {
 				while ($row = $res->fetch_object()){
 					echo "<tr>";

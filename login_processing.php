@@ -1,5 +1,5 @@
 <?php
-    session_start();
+   require_once "session.php";
 
     if(isset($_POST["submit"])) {
         $username = $_POST["username"];
@@ -14,7 +14,7 @@
             if (mysqli_num_rows($res) > 0) {
                 header("Location: default.php");
                 $_SESSION["sid"] = "login";
-                $_SESSION["flash"] = "Đăng nhập thành công!";
+                setLoginFlash("Đăng nhập thành công!");
             } else {
                 header("Location: login.php");
             }

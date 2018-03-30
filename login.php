@@ -3,7 +3,7 @@
     require_once "layout/header.php";
     require_once "login_processing.php";
 
-    if(isset($_SESSION["sid"]) && $_SESSION["sid"] === "login") {
+    if(isLogin()) {
         header("Location: default.php");
     }
 

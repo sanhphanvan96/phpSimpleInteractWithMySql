@@ -7,6 +7,7 @@
 		header("Location: login.php");
 	}
 
+	// Thêm header
 	require_once "layout/header.php";
 
 	// Tạo flash message nếu vừa đăng nhập thành công
@@ -15,7 +16,6 @@
 		echo "<p>".$flash."</p>";
 	}
 ?>
-
 	<table border="1">
 		<h3>Danh sách Nhân viên</h3>
 		<button><a href="./records.php">Tạo mới nhân viên</a></button>

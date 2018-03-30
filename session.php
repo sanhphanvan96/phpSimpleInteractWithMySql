@@ -1,19 +1,27 @@
 <?php
     session_start();
-    // if($_SESSION["sid"] !== "login") {
-    //     header("Location: login.php");
-    // }
 
     function isLogin() {
-        if(isset($_SESSION["sid"]) && $_SESSION["sid"] === "login") {
+        if(isset($_SESSION["login"]) && $_SESSION["login"] === true) {
             return true;
         }
         return false;
     }
 
+    function setIsLogin() {
+        $_SESSION["login"] = true;
+        return true;
+    }
+
+    function setLogout() {
+        $_SESSION["login"] = false;
+        return true;
+    }
+
     function setLoginFlash($flash = "") {
         $_SESSION["login_flash"] = $flash;
     }
+
     function getLoginFlash() {
         $flash = "";
         if(isset($_SESSION["login_flash"]))

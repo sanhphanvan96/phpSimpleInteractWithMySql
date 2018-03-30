@@ -1,3 +1,4 @@
+<?php require_once "session.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,5 +8,10 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h3><a href="http://localhost/laptrinhweb/connectDB/">Trang chủ</a></h3>
+<h3><a href="./">Trang chủ</a></h3>
+<?php
+	if(isLogin()) {
+		echo '<h4><a href="./logout.php">Đăng xuất</a></h4>';
+	}
+?>
 <div class="container">

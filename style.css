@@ -1,0 +1,25 @@
+.container {
+    margin-left: 400px;
+}
+
+.container table th {
+    width: 20%;
+}
+
+.container table tr {
+    height: 30px;
+    text-align: center;
+}
+
+.myform strong {
+    display: block;
+    width: 300px;
+}
+button {
+    margin: 5px;
+    padding: 5px;
+}
+button a {
+    text-decoration:none !important;
+    display: block;
+}

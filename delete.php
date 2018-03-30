@@ -1,4 +1,13 @@
 <?php
+
+    require_once "session.php";
+
+    // Kiểm tra nếu chưa login => chuyển hướng đến login, ngừng script
+    if(!isLogin()) {
+        header("Location: login.php");
+        exit();
+    }
+    
     // connect to the database
     require_once "connect_db.php";
 
@@ -10,7 +19,7 @@
         // delete record from database
         $sql = "DELETE FROM table1 WHERE maso = '".$maso."' LIMIT 1";
         if ($connect->query($sql) === TRUE) {
-            
+            // Update record
         } else {
             echo "Error updating record: " . $connect->error;
         }

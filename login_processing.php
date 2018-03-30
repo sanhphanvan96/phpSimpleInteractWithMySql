@@ -12,6 +12,7 @@
             $sql = "SELECT * FROM admin WHERE username='".$username."' AND password='".$password."' LIMIT 1";
             $res = mysqli_query($connect, $sql);
             if (mysqli_num_rows($res) > 0) {
+                // Set đăng nhập thành công và chuyển hướng đến trang chủ
                 setIsLogin();
                 setLoginFlash("Đăng nhập thành công!");
                 header("Location: default.php");

@@ -1,6 +1,13 @@
-<?php 
-require_once "connect_db.php";
-require_once "layout/header.php";
+<?php
+    require_once "session.php";
+
+    // Kiểm tra nếu chưa login => chuyển hướng đến login, ngừng script
+    if(!isLogin()) {
+        header("Location: login.php");
+        exit();
+    }
+    require_once "connect_db.php";
+    require_once "layout/header.php";
 
 function renderForm($mes = "", $field = "", $id = "") {
     $maso = $id;
